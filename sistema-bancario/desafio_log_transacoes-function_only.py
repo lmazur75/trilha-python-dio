@@ -2,7 +2,7 @@
 
 from datetime import datetime, time, date
 
-def deposito(saldo: float):
+def depositar(saldo: float):
     global operacoes
     data_hora = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     valor_deposito = float(input('Digite o valor a ser depositado: R$ '))
@@ -16,7 +16,7 @@ def deposito(saldo: float):
             break
 
 
-def saque(saldo: float):
+def sacar(saldo: float):
     global operacoes, numero_transacoes, limite_transacoes
     data_hora = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     limite = 500
@@ -38,7 +38,7 @@ def saque(saldo: float):
             break
 
 
-def extrato(operacoes: list, saldo: float):
+def gerar_extrato(operacoes: list, saldo: float):
     for key, value in enumerate(operacoes):
         print(f'{value['data_hora']} - Operacao: {value['operacao']} - valor: R$ {value['valor']:.2f}')
     print(f'\nSaldo atual: R$ {saldo:.2f}\n')
@@ -66,13 +66,13 @@ if __name__ == '__main__':
             ultimo_dia = date.today()
         match op:
             case 'd':
-                valor_operacao = deposito(saldo)
+                valor_operacao = depositar(saldo)
                 saldo += valor_operacao
             case 's':
-                valor_operacao = saque(saldo)
+                valor_operacao = sacar(saldo)
                 saldo -= valor_operacao
             case 'e':
-                extrato(operacoes, saldo)
+                gerar_extrato(operacoes, saldo)
             case 'q':
                 break
             case _:
