@@ -1,3 +1,20 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+.gitignore
+.settings/
+.project
+.classpath
+.cproject
+*.class
+*.o
+*.so
+*.swp
+*.swo
+*.swx
+*.bak
+*.tmp
+*.a
+*.la
+*.lo
+.env
